@@ -1,3 +1,3 @@
 # RK6_LABS
 
-![photo|images.jpg]
+![photo](images.jpg)
