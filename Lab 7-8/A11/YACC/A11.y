@@ -7,13 +7,9 @@ void yyerror (char const*);
 %%
 
 input : {printf("Enter number:\n");}
-  | input output
+  | error '\n' {yyerrok;}
+  | input expr {printf ("Correct!\n");}
   ;
-
-output: '\n'
-| error '\n' {yyerrok;}
-| expr {printf("CORRECT!\n");}
-;
 
 expr : EVEN '\n' | ZERO '\n' ;
 
@@ -35,5 +31,5 @@ int yylex(void) {
 }
 
 void yyerror (char const* s){
-  fprintf(stderr, "INCORRECT\n");
+  fprintf(stderr, "Incorrect\n");
 }
